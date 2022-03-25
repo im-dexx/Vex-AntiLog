@@ -15,46 +15,32 @@ import os
 
 
 # NoLog ===========|
-def nolog():
-    # ask4input
-    print("Drag & Drop the file (Remove the '' at the start and end)")
-    file2check = input("File to check?> ")
+def scanner():
+    file = input("File Path: ")
 
-    # scan file
     try:
-        scan = open(file2check, "r")
+        scan = open(file, "r")
     except:
-        print("Invalid File, try again.")
-        nolog()
+        print("error, please try again.")
+        scanner()
 
     for line in scan:
-        check4webhook1 = line.split("discord")
-        check4webhook2 = line.split("webhooks")
-        check4webhook3 = line.split("api")
-        
-        check4link1 = line.split("https")
-        check4link2 = line.split("://")
-        check4link3 = line.split("com")
+        checkip1 = line.split("ip")
 
-        check4ip1 = line.split("ip")
+        checkwebhook1 = line.split("webhook")
+        checkwebhook2 = line.split("discord")
 
-        for x in check4webhook1:
-            print("Webhook found: scanned for 'discord'")
-        for x in check4webhook2:
-            print("Webhook found: scanned for 'webhooks'")
-        for x in check4webhook3:
-            print("Webhook found: scanned for 'api'")
+        checklink1 = line.split("https")
 
-        for x in check4link1:
-            print("Link Found: scanned for 'https'")
-        for x in check4link2:
-            print("Link Found: scanned for '://'")
-        for x in check4link3:
-            print("Link Found: scanned for 'com'")
+        for x in checkip1:
+            print("IP Logger found: looked for 'ip'")
+        for x in checkwebhook1:
+            print("Webhook found: looked for 'webhook'")
+        for x in checkwebhook2:
+            print("Webhook found: looked for 'discord'")
+        for x in checklink1:
+            print("Link found: looked for 'https'")
 
-        for x in check4ip1:
-            print("IP Logger Found: scanned for 'ip'")
-
-    # loop
-    nolog()
-nolog()
+    print("\n")
+    scanner()
+scanner()
